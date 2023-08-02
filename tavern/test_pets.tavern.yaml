@@ -1,0 +1,79 @@
+# py.test test_pets.tavern.yaml  -v --alluredir="C:\Users\ahema\pets"
+# allure serve C:\Users\ahema\pets
+# tavern-ci --stdout test_pets.tavern.yaml
+test_name: Info About Pets API
+
+strict:
+  - json:off
+
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Create multiple pets
+
+    # Define the request to be made...
+    request:
+        url : https://petstore.swagger.io/v2/pet
+        method : POST
+        headers:
+            content-type: application/json
+        json:
+            id: 1
+            category:
+              id: 0
+              name: string
+            name: doggie
+            photoUrls:
+            - string
+            tags:
+            - id: 0
+              name: string
+            status: available
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+
+  
+  - name: Update pet's status and other details
+
+    # Define the request to be made...
+    request:
+        url : https://petstore.swagger.io/v2/pet
+        method : PUT
+        headers:
+            content-type: application/json
+        json:
+            id: 1
+            category:
+              id: 0
+              name: string
+            name: doggie
+            photoUrls:
+            - string
+            tags:
+            - id: 0
+              name: string
+            status: pending
+        
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+
+
+  - name: Get pet by status and verify updated status of pet
+
+    # Define the request to be made...
+    request:
+        url : https://petstore.swagger.io/v2/pet/findByStatus
+        method : GET
+        headers:
+            content-type: application/json
+        params:
+          status: pending
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      # json:
+      #   status: pending

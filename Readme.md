@@ -48,10 +48,6 @@ The `utils/api_client.py` module provides the `APIClient` class, which is used t
 
 The `utils/assertions.py` module contains custom assertion functions that are used to validate API responses. These assertions provide informative error messages to aid in quick identification of issues during testing.
 
-## Configuration
-
-The `config/config.py` file contains configuration settings, such as the base URL and headers, that can be modified as per the testing environment.
-
 ## Extensibility
 
 The framework follows a modular design to promote reusability and maintainability. It can be easily extended by adding new test cases, custom assertions, or utility functions. You can also integrate it with other third-party libraries to enhance its capabilities.
