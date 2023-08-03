@@ -10,7 +10,7 @@ class TestAssertions(unittest.TestCase):
         response = MockResponse(status_code=404)
         with self.assertRaises(AssertionError) as context:
             assert_status_code(response, 200)
-        self.assertIn("Expected status code 200, but got 404", str(context.exception))
+        self.assertIn("Expected status code '200', but got '404'", str(context.exception))
 
     def test_assert_json_value_pass(self):
         response_json = {"name": "John", "age": 30}
@@ -30,7 +30,7 @@ class TestAssertions(unittest.TestCase):
         response_json = {"status": "adopted"}
         with self.assertRaises(AssertionError) as context:
             assert_json_value_in_list(response_json, "status", ["available", "pending", "sold"])
-        self.assertIn("Expected value not present in ['available', 'pending', 'sold'] for key 'status', but got 'adopted'", str(context.exception))
+        self.assertIn("Expected value not present in '['available', 'pending', 'sold']' for key 'status', but got 'adopted'", str(context.exception))
 
 # Helper class to create a mock response object
 class MockResponse:
