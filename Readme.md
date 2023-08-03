@@ -10,7 +10,7 @@ To use this framework, follow the steps below:
 
 2. Clone this repository to your local machine:
    ```
-   git clone <repository_url>
+   git clone https://github.com/THEFASHIONGEEK/api_testing_framework.git
    cd api-testing-framework
    ```
 
@@ -24,7 +24,7 @@ To use this framework, follow the steps below:
 To execute the test cases, use the pytest framework. You can run the tests by executing the following command from the root directory of the project:
 
 ```
-pytest -v --html=reports/report.html
+pytest tests -v --html=reports/report.html
 ```
 
 This will run all the test cases and generate an HTML report in the `reports` directory. The `-v` flag enables verbose mode to display detailed test results.
